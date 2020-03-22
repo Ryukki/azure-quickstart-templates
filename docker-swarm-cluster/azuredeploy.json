@@ -28,8 +28,8 @@
     "adminUsername": "azureuser",
     "vmNameMaster": "swarm-master-",
     "vmNameNode": "swarm-node-",
-    "vmSizeMaster": "Standard_A0",
-    "vmSizeNode": "Standard_A2",
+    "vmSizeMaster": "Standard_B1s",
+    "vmSizeNode": "Standard_B1s",
     "availabilitySetMasters": "swarm-masters-set",
     "availabilitySetNodes": "swarm-nodes-set",
     "osImagePublisher": "CoreOS",
@@ -78,34 +78,6 @@
       "properties": {
         "accountType": "[variables('storageAccountType')]"
       }
-    },
-    {
-      "type": "Microsoft.Compute/availabilitySets",
-      "name": "[variables('availabilitySetMasters')]",
-      "apiVersion": "2017-12-01",
-      "location": "[parameters('location')]",
-      "sku": {
-        "name": "Aligned"
-          },
-        "properties": { 
-            "platformFaultDomainCount": 2,
-            "platformUpdateDomainCount": 5
-            }
-        
-    },
-    {
-      "type": "Microsoft.Compute/availabilitySets",
-      "name": "[variables('availabilitySetNodes')]",
-      "apiVersion":"2017-12-01",
-      "location": "[parameters('location')]",
-      "sku": {
-        "name": "Aligned"
-          },
-        "properties": { 
-            "platformFaultDomainCount": 2,
-            "platformUpdateDomainCount": 5
-            }
-        
     },
     {
       "apiVersion": "2015-06-15",
